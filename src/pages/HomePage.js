@@ -102,18 +102,18 @@ function applyFilter(products, filters) {
   }
 
   // FILTER PRODUCTS
-  if (filters.gender.length > 0) {
-    filteredProducts = products.filter((product) =>
+  if (filters.gender?.length > 0) {
+    filteredProducts = filteredProducts.filter((product) =>
       filters.gender.includes(product.gender)
     );
   }
   if (filters.category !== "All") {
-    filteredProducts = products.filter(
+    filteredProducts = filteredProducts.filter(
       (product) => product.category === filters.category
     );
   }
   if (filters.priceRange) {
-    filteredProducts = products.filter((product) => {
+    filteredProducts = filteredProducts.filter((product) => {
       if (filters.priceRange === "below") {
         return product.price < 25;
       }
@@ -124,7 +124,7 @@ function applyFilter(products, filters) {
     });
   }
   if (filters.searchQuery) {
-    filteredProducts = products.filter((product) =>
+    filteredProducts = filteredProducts.filter((product) =>
       product.name.toLowerCase().includes(filters.searchQuery.toLowerCase())
     );
   }
